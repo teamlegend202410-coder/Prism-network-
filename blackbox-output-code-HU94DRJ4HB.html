@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism Network SMP Store</title>
+    <style>
+        /* Minecraft-inspired theme */
+        body {
+            font-family: 'Courier New', monospace; /* Pixel-like font; replace with Minecraft font if downloaded */
+            background: linear-gradient(to bottom, #4CAF50, #000000); /* Grass to stone gradient */
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background: #333;
+            padding: 20px;
+            font-size: 2em;
+            border-bottom: 5px solid #FFD700; /* Gold border */
+        }
+        .server-ip {
+            font-size: 1.5em;
+            color: #FFD700;
+            margin: 10px 0;
+        }
+        .products {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+        .product {
+            background: #222;
+            border: 2px solid #4CAF50;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            border-radius: 5px;
+        }
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        button {
+            background: #FFD700;
+            color: black;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #FFA500;
+        }
+        .admin-panel {
+            display: none;
+            margin: 20px;
+            background: #111;
+            padding: 20px;
+            border: 2px solid #FFD700;
+        }
+        .login-form {
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 5px;
+            margin: 5px;
+        }
+        footer {
+            background: #333;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌈 Prism Network SMP Store 🌈</h1>
+        <p class="server-ip">Join our SMP Server: <strong>prima.minerack.fun:25581</strong></p>
+    </header>
+
+    <section class="products">
+        <div class="product">
+            <img src="https://via.placeholder.com/200x150/4CAF50/FFFFFF?text=Diamond+Pickaxe" alt="Diamond Pickaxe">
+            <h3>Diamond Pickaxe</h3>
+            <p>Price: 500 BDT</p>
+            <button onclick="buyProduct('Diamond Pickaxe')">Buy with bKash</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200x150/FFD700/000000?text=Gold+Armor" alt="Gold Armor">
+            <h3>Gold Armor Set</h3>
+            <p>Price: 1000 BDT</p>
+            <button onclick="buyProduct('Gold Armor Set')">Buy with bKash</button>
+        </div>
+        <!-- Add more products here -->
+    </section>
+
+    <section class="admin-panel" id="adminPanel">
+        <h2>Admin Dashboard</h2>
+        <p>Manage Products, Orders, etc. (Mock - In real site, add full controls here)</p>
+        <button onclick="editProduct()">Edit Product</button>
+        <button onclick="viewOrders()">View Orders</button>
+        <!-- Add more admin features -->
+    </section>
+
+    <div class="login-form">
+        <h2>Admin Login</h2>
+        <input type="password" id="adminPass" placeholder="Enter Password">
+        <button onclick="loginAdmin()">Login</button>
+    </div>
+
+    <footer>
+        <p>Powered by Prism Network | bKash Numbers: 01338346658 / 01639149865</p>
+    </footer>
+
+    <script>
+        // Mock bKash payment (replace with real API)
+        function buyProduct(product) {
+            alert(`Redirecting to bKash for ${product}. In real site, integrate bKash API here.`);
+            // Example: window.location.href = 'https://bkash.com/pay?amount=500&merchant=yourid';
+        }
+
+        // Simple admin login (insecure - use server-side in production)
+        function loginAdmin() {
+            const pass = document.getElementById('adminPass').value;
+            if (pass === 'Tahmid22') {
+                document.getElementById('adminPanel').style.display = 'block';
+                alert('Admin access granted!');
+            } else {
+                alert('Wrong password!');
+            }
+        }
+
+        // Mock admin functions
+        function editProduct() {
+            alert('Edit product feature (add form here in real site)');
+        }
+        function viewOrders() {
+            alert('View orders (connect to database in real site)');
+        }
+    </script>
+</body>
+</html>
