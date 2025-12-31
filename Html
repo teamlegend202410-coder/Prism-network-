@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism Network | Store</title>
+    <style>
+        :root { --primary: #00d4ff; --bg: #0a0a0a; --card: #161616; }
+        body { background: var(--bg); color: white; font-family: 'Arial', sans-serif; margin: 0; }
+        .header { padding: 60px; background: linear-gradient(45deg, #004e92, #000428); border-bottom: 3px solid var(--primary); text-align: center; }
+        .ip-badge { background: rgba(0,212,255,0.2); border: 1px solid var(--primary); padding: 8px 15px; border-radius: 20px; color: var(--primary); }
+        .container { display: flex; justify-content: center; gap: 20px; padding: 40px; flex-wrap: wrap; }
+        .card { background: var(--card); border-radius: 12px; padding: 25px; width: 260px; border: 1px solid #222; transition: 0.3s; text-align: center; }
+        .card:hover { border-color: var(--primary); box-shadow: 0 0 15px var(--primary); }
+        .price { font-size: 24px; color: var(--primary); font-weight: bold; }
+        
+        /* Payment Modal */
+        #payModal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #1a1a1a; padding: 30px; border-radius: 15px; border: 2px solid var(--primary); z-index: 1000; width: 320px; }
+        input { width: 90%; padding: 10px; margin: 10px 0; background: #222; border: 1px solid #444; color: white; border-radius: 5px; }
+        .btn-pay { background: var(--primary); color: black; border: none; padding: 12px; width: 100%; font-weight: bold; cursor: pointer; border-radius: 5px; }
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 999; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1 style="letter-spacing: 5px;">PRISM NETWORK</h1>
+    <p>Official Minecraft SMP Store</p>
+    <span class="ip-badge">IP: prima.minerack.fun:25581</span>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h3>ELITE RANK</h3>
+        <p class="price">250 BDT</p>
+        <button class="btn-pay" onclick="openPay('ELITE RANK', 250)">BUY NOW</button>
+    </div>
+    <div class="card">
+        <h3>PRISM RANK</h3>
+        <p class="price">500 BDT</p>
+        <button class="btn-pay" onclick="openPay('PRISM RANK', 500)">BUY NOW</button>
+    </div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<div id="payModal">
+    <h2 id="p_name">Product Name</h2>
+    <p style="font-size: 13px; color: #aaa;">Send Money to: <br> <b>01338346658</b> (bKash Personal)</p>
+    <input type="text" id="u_name" placeholder="Minecraft Username" required>
+    <input type="text" id="u_phone" placeholder="Your bKash Number" required>
+    <input type="text" id="u_trx" placeholder="Transaction ID (TrxID)" required>
+    <button class="btn-pay" onclick="submitOrder()">SUBMIT ORDER</button>
+    <button onclick="closePay()" style="background:none; border:none; color:red; margin-top:10px; cursor:pointer;">Cancel</button>
+</div>
+
+<script>
+    function openPay(name, price) {
+        document.getElementById('p_name').innerText = name + " - " + price + "Tk";
+        document.getElementById('payModal').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+    function closePay() {
+        document.getElementById('payModal').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+    function submitOrder() {
+        alert("Order Received!\nAdmin will check TrxID and give your rank soon.");
+        closePay();
+    }
+</script>
+</body>
+</html>
